@@ -1,0 +1,6 @@
+{
+    "name": "serafim/knockout-validator",
+    "require": {
+        "serafim/asset": "2.*"
+    }
+}
