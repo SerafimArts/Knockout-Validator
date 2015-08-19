@@ -9,8 +9,8 @@ class window.SomeController
 #
 # View:
 #
-# <input type="tel" data-bind="value: number.data, valueUpdate: 'input'">
-# <!--ko ifnot: number.valid-->
-#     <span class="error-message" data-bind="text: number.error">&nbsp;</span>
+# <input type="tel" data-bind="value: phone.data, valueUpdate: 'input'">
+# <!--ko ifnot: phone.valid-->
+#     <span class="error-message" data-bind="text: phone.error">&nbsp;</span>
 # <!--/ko-->
 #
