@@ -43,9 +43,9 @@ some = new Validator.Text(((content) -> content is 'some'), options);
 ```
 
 First argument must be type of `string`, `function(){}` or `Array`.
-1) `string` - you can use multiple rules splitted by `|` with arguments slitted by `:`
-2) `function(){}` - single custom rule. Must be return `true` if first argument is valid.
-3) `Array` - multiple arguments with `string` or `function(){}`
+- `string` - you can use multiple rules splitted by `|` with arguments slitted by `:`
+- `function(){}` - single custom rule. Must be return `true` if first argument is valid.
+- `Array` - multiple arguments with `string` or `function(){}`
 
 Options:
 - `options.content` (string) - Default text of field
