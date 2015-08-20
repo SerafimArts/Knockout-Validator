@@ -2,12 +2,14 @@ namespace Validator:
   class TextField
     ###
      # options.content    - Default content
-     # options.updatable  - Automatic validation
+     # options.subscribe  - Automatic validation
+     # options.update     - Init validations after creating an object
     ###
     constructor: (rule, options = {}) ->
       options = @args(options, {
         content:   ''
-        updatable: true
+        update:    true
+        subscribe: true
       })
 
       @default  = options.content
@@ -16,9 +18,11 @@ namespace Validator:
       @error    = ko.observable ''
       @rules    = new Validator.Manager(rule)
 
-      # Check validators
+      # Check for update
+      if options.update then do @check
+
+      # Check for subscribe
       if options.updatable
-        do @check
         @data.subscribe => do @check
 
     ###
