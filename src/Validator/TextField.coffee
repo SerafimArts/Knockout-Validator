@@ -22,7 +22,7 @@ namespace Validator:
       if options.update then do @check
 
       # Check for subscribe
-      if options.updatable
+      if options.subscribe
         @data.subscribe => do @check
 
     ###
