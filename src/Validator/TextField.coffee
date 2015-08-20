@@ -1,7 +1,5 @@
-{ValidatorManager} = Validator
-
 namespace Validator:
-  class Text
+  class TextField
     ###
      # options.content    - Default content
      # options.updatable  - Automatic validation
@@ -16,18 +14,17 @@ namespace Validator:
       @data     = ko.observable @default
       @valid    = ko.observable true
       @error    = ko.observable ''
-      @rules    = new ValidatorManager(rule)
-
-      do @check
+      @rules    = new Validator.Manager(rule)
 
       # Check validators
       if options.updatable
-        @data.subscribe (value) => do @check
+        do @check
+        @data.subscribe => do @check
 
     ###
       Merge options with default
     ###
-    args: (options = {}, defaultArgs = {}) =>
+    args: (options = {}, defaultArgs = {}) => 
       result = {}
       for key of defaultArgs
         result[key] = if options[key]?

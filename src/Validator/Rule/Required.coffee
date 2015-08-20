@@ -3,7 +3,6 @@
 namespace Validator:Rule:
   class Required extends AbstractRule
     required: true
-    message: 'Не может быть пустым'
 
     check: (content, args = []) =>
-      return content.length > 0
+      return (content.toString().trim().length > 0) || 'Не может быть пустым'

@@ -1,12 +1,13 @@
 {Closure} = Validator.Rule
 
 namespace Validator:
-  class ValidatorManager
+  class Manager
     # Validator list
     validators =
       email:    new Validator.Rule.Email
       phone:    new Validator.Rule.Phone
       required: new Validator.Rule.Required
+      number:   new Validator.Rule.Number
 
     # Aliases
     aliases = Object.keys(validators)
@@ -32,8 +33,11 @@ namespace Validator:
         content = content.trim() if item.validator.trim
 
         # return false if validator not complete
-        unless item.validator.check(content, item.args)
-          @lastErrorMessage = item.validator.message
+        echo (result = item.validator.check(content, item.args))
+        unless (result = item.validator.check(content, item.args)) is true
+          @lastErrorMessage = result if typeof(result) is "string"
+          @lastErrorMessage = item.validator.error if typeof(result) isnt "string"
+
           return false
 
       return true
