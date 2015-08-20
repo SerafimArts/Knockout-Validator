@@ -43,7 +43,7 @@ some = new Validator.TextField(((content) -> content is 'some' || 'Error message
 ```
 
 First argument must be type of `string`, `function(){}` or `Array`.
-- `string` - you can use multiple rules splitted by `|` with arguments slitted by `:`
+- `string` - you can use multiple rules splitted by `|` with arguments splitted by `:`
 - `function(){}` - single custom rule. Must be return `true` if first argument is valid.
 - `Array` - multiple arguments with `string` or `function(){}`
 
@@ -72,4 +72,5 @@ result = validator.check('asdasd@asdasd.com')
 - `number` or `number:[length]` or `number:[length from]:[to]` - Value is number
 - `phone` - `7` or `10` or `11` numbers without `(`, `)`, `+`, `-`, `<space>` characters
 - `required` - String length must be more then `0`. Whitespaces will be ignored
+- `string` - Contains one or more characters
 
