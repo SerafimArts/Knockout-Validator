@@ -4,8 +4,5 @@ namespace Validator:Rule:
   class String extends AbstractRule
     trim: true
     check: (content, args = []) =>
-      # ** OR **.**
-      matches = content.match(/\w/)
-
-      return 'Не похоже на строку' unless !!matches
+      return typeof(content) is 'string' || 'Не похоже на строку'
 

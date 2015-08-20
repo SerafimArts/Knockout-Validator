@@ -8,6 +8,7 @@ namespace Validator:
       phone:    new Validator.Rule.Phone
       required: new Validator.Rule.Required
       number:   new Validator.Rule.Number
+      string:   new Validator.Rule.String
 
     # Aliases
     aliases = Object.keys(validators)
@@ -33,7 +34,6 @@ namespace Validator:
         content = content.trim() if item.validator.trim
 
         # return false if validator not complete
-        echo (result = item.validator.check(content, item.args))
         unless (result = item.validator.check(content, item.args)) is true
           @lastErrorMessage = result if typeof(result) is "string"
           @lastErrorMessage = item.validator.error if typeof(result) isnt "string"
