@@ -12,7 +12,7 @@ namespace Validator:
     constructor: (rule) ->
       @rules = new Validator.Manager(rule)
 
-       ###
+    ###
       Validate field
     ###
     check: (content) =>
